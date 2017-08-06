@@ -2,7 +2,9 @@
 //
 
 #include "stdafx.h"
+#include "Shader.h"
 #include "GLAD\glad.h"
+
 #include <GLFW\glfw3.h>
 
 #include <iostream>
@@ -44,6 +46,8 @@ int main()
 		return -1;
 	}
 
+	Shader *shader = new Shader("vertShader.txt", "fragShader.txt");
+
 	// render loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -53,6 +57,8 @@ int main()
 		// render
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
+
+		shader->use();
 
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		glfwSwapBuffers(window);
