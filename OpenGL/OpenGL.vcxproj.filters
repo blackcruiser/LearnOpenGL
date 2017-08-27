@@ -39,6 +39,9 @@
     <ClCompile Include="Module\Texture.cpp">
       <Filter>Module</Filter>
     </ClCompile>
+    <ClCompile Include="Module\Object.cpp">
+      <Filter>Module</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -57,6 +60,9 @@
       <Filter>Module</Filter>
     </ClInclude>
     <ClInclude Include="Module\Texture.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="Module\Object.h">
       <Filter>Module</Filter>
     </ClInclude>
   </ItemGroup>

@@ -146,6 +146,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Module\Object.cpp" />
     <ClCompile Include="Module\Shader.cpp" />
     <ClCompile Include="Module\Texture.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="GLAD\glad.h" />
     <ClInclude Include="GLAD\khrplatform.h" />
+    <ClInclude Include="Module\Object.h" />
     <ClInclude Include="Module\Shader.h" />
     <ClInclude Include="Module\Texture.h" />
     <ClInclude Include="stdafx.h" />
