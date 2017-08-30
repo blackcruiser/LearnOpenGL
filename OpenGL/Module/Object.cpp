@@ -19,7 +19,7 @@ Object::~Object()
 	glDeleteVertexArrays(1, &_vao);
 }
 
-void Object::setVertices(float *vertices, float *texCords, int count)
+void Object::setVertices(float* vertices, float* texCords, int count)
 {
 	glBindVertexArray(_vao);
 
@@ -28,10 +28,10 @@ void Object::setVertices(float *vertices, float *texCords, int count)
 	glBufferSubData(GL_ARRAY_BUFFER, 0, count * sizeof(float) * 3, vertices);
 	glBufferSubData(GL_ARRAY_BUFFER, count * sizeof(float) * 3, count * sizeof(float) * 2, texCords);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_TRUE, 0, (void *)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_TRUE, 0, (void*)0);
 	glEnableVertexAttribArray(0);
 
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_TRUE, 0, (void *)(count * sizeof(float) * 3));
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_TRUE, 0, (void*)(count * sizeof(float) * 3));
 	glEnableVertexAttribArray(1);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -43,12 +43,14 @@ void Object::setTexture(const string &path)
 	_texture.loadFromFile(path);
 }
 
-void Object::draw()
+void Object::draw(const glm::mat4 &mvp)
 {
 	glBindVertexArray(_vao);
 
 	_texture.use();
 	_shader.use();
+	_shader.setMat4("mvp", mvp);
+
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 
 	glBindVertexArray(0);
