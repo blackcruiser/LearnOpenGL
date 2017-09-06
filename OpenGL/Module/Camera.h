@@ -12,12 +12,13 @@ public:
 	void lookAt(const glm::vec3 &center);
 
 	glm::mat4 getViewMatrix();
+	glm::mat4 getProjectionMatrix();
 
 
 private:
 	bool _isDirty;
 
 	glm::vec3 _eye, _center;
-	glm::mat4 _viewMat;
+	glm::mat4 _viewMat, _projectionMat;
 };
 

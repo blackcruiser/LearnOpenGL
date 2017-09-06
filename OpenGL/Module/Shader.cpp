@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Shader.h"
 
+#include <glm/include/glm/gtc/type_ptr.hpp>
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -111,5 +113,5 @@ void Shader::use()
 void Shader::setMat4(const std::string &name, const glm::mat4 &value)
 {
 	GLuint location = glGetUniformLocation(_program, name.c_str());
-	glUniformMatrix4fv(location, 1, false, &value[0][0]);
+	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(value));
 }

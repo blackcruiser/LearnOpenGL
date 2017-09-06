@@ -26,7 +26,7 @@ public:
     void setVertices(float* vertices, float* texCords, int count);
     void setTexture(const std::string &path);
 
-    virtual void draw(const glm::mat4 &mvp);
+    virtual void draw(const glm::mat4 &viewMatrix, const glm::mat4 &projectionMatrix);
 
 protected:
     Vec4 _position;

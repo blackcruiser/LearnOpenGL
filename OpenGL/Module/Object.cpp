@@ -43,13 +43,14 @@ void Object::setTexture(const string &path)
 	_texture.loadFromFile(path);
 }
 
-void Object::draw(const glm::mat4 &mvp)
+void Object::draw(const glm::mat4 &viewMatrix, const glm::mat4 &projectionMatrix)
 {
 	glBindVertexArray(_vao);
 
 	_texture.use();
 	_shader.use();
-	_shader.setMat4("mvp", mvp);
+	_shader.setMat4("viewMatrix", viewMatrix);
+	_shader.setMat4("projectionMatrix", projectionMatrix);
 
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 

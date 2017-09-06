@@ -85,7 +85,7 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 
 		
-        obj.draw(camera.getViewMatrix());
+        obj.draw(camera.getViewMatrix(), camera.getProjectionMatrix());
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         glfwSwapBuffers(window);
