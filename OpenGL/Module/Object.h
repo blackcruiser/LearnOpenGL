@@ -23,7 +23,7 @@ public:
     Object();
     ~Object();
 
-    void setVertices(float* vertices, float* texCords, int count);
+    void setVertices(float* vertices, float* texCords, int verticeCount, int *indexs, int indexCount);
     void setTexture(const std::string &path);
 
     virtual void draw(const glm::mat4 &viewMatrix, const glm::mat4 &projectionMatrix);
@@ -31,9 +31,11 @@ public:
 protected:
     Vec4 _position;
 
+	int _indexCount;
+	int *_indexs;
     Texture _texture;
     Shader _shader;
-    GLuint _vao, _vbo;
+    GLuint _vao, _vbo, _veo;
 
 private:
 };
